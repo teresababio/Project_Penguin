@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from database.mongodb import db
-
 from bson import json_util
 from json import loads
 
@@ -39,9 +38,36 @@ def get_penguins(specie:str):
 
 #Mostrar todos los pinguinos de un sexo
 
-@router.get("/species/penguins/{sexo}")
+@router.get("/sex/penguins/{sexo}")
 def get_penguins(sexo:str):
-        res = list(db["penguin_data"].find({"Sex": sexo}))
+        print(sexo.upper())
+        res = list(db["penguin_data"].find({"Sex": sexo.upper()}))
         return loads(json_util.dumps(res))
 
-#Preguntar si es posible añadir dos restricciones en la busqueda
+
+#El siguiente router nos permite hacer operaciones que contengan más de una restricción. Poner comillas dobles en los
+#string al pasar por los web parameters
+
+#Ejemplo:  http://127.0.0.1:8000/rest_dict/penguins/?list_rest=[{"Sex": "MALE"}, {"Species":   "Adelie Penguin (Pygoscelis adeliae)" 
+
+@router.get("/rest_dict/penguins/")
+def get_penguins(list_rest: str ='{}', operator:str ="$and", project : str =""):
+        if list_rest=='{}':
+                filt={}
+        else:
+                if "," not in list_rest:
+                        list_rest = list_rest.strip('][')
+                        filt = loads(list_rest)
+                else:
+                        list_rest = list_rest.strip('][').split(', ')
+                        list_rest = [loads(elem) for elem in list_rest]
+                        filt ={ operator: list_rest}
+        if not project:
+                project={}
+        else:
+                project = loads(project)
+
+        res = list(db["penguin_data"].find(filt , project))
+        return loads(json_util.dumps(res))
+
+ 
