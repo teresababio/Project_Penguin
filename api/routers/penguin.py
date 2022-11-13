@@ -71,3 +71,4 @@ def get_penguins(list_rest: str ='{}', operator:str ="$and", project : str =""):
         return loads(json_util.dumps(res))
 
  
+#Falta router para geoqueries que se deja para cuando se haga
