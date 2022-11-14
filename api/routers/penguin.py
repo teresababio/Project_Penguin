@@ -26,7 +26,7 @@ def get_penguins(_id: int):
 @router.get("/distinct/penguin/species")
 def get_penguins():
         res = list(db["penguin_data"].find({}).distinct("Species"))
-        return loads(json_util.dumps(res))
+        return res
 
 #Mostrar todos los pinguinos de una especie determinada
 
