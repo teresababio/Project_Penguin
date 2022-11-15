@@ -2,6 +2,9 @@ from folium import Map, Marker
 from data.get_data import get_rest_data
 
 #https://github.com/randyzwitch/streamlit-folium
+
+
+#Función que permite representar las coordenadas de cada una de las islas.
 def mapa_Palmer():
     dict_geo ={'Biscoe': {'latitud': -65.4333316, 'longitud': -65.499998},
         'Dream': {'latitud': -64.7333304, 'longitud': -64.2333324},
@@ -19,8 +22,13 @@ def mapa_Palmer():
 
 def graf_var(species, var):
     data = get_rest_data('?project={"_id":0, "Species":1,'+ f'"{var}"'+': 1}')
+    data = data[ data in  ]
+    var_elements = set()
     if type(data[0][var]==str):
-        print(1)
+        for penguin in  data:
+            1
+        
+        
 
 
 

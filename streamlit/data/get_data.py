@@ -16,7 +16,7 @@ def get_n_penguins(n):
 
 #Esta función nos permite obtener ciertos valores del dataframe
 def get_rest_data(rest):
-    return requests.get("http://127.0.0.1:8000/rest_dict/penguins/"+rest).json()
+    return pd.read_json("http://127.0.0.1:8000/rest_dict/penguins/"+rest)
     
 
 

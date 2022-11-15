@@ -5,7 +5,7 @@ from json import loads
 
 router = APIRouter()
 #Mostrar todos los datos
-@router.get("/all/penguins")
+@router.get("/penguins")
 def get_penguins():
         res = list(db["penguin_data"].find({}))
         return loads(json_util.dumps(res))
