@@ -9,16 +9,23 @@ from streamlit_folium import st_folium
 
 
 st.title('Los pingüinos del Archipiélago de Palmer')
-st.text('El archipiélago Palmer es un grupo de islas montañosas ubicadas frente a la costa\n noroeste de la Península Antártica. Las islas del archipiélago Palmer son unas de las partes\n más accesibles y espectaculares del continente antártico.\n ')
-st.text('En este caso, se presentan tres especies de pingüinos ubicados en tres islas \n del Archipiérlago de Palmer.')
+st.markdown("""
+    El archipiélago Palmer es un grupo de islas montañosas ubicadas frente a la costa noroeste de la 
+    Península Antártica. Las islas del archipiélago Palmer son unas de las partes más accesibles y espectaculares
+     del continente antártico.
+
+    En este caso, se presentan tres especies de pingüinos ubicados en tres islas  del Archipiérlago de Palmer
+    """)
 map_palmer = st_folium(mapa_Palmer())
-st.text('Existen diferentes factores que caracterizan a cada una de las especies\n de pingüinos. Más aún, en una misma especie se puede dar lo que se conoce como\n dimorfismo sexual (variaciones en la fisonomía externa, como forma, coloración o\n tamaño, entre machos y hembras de una misma especie). ')  
+st.markdown("""Existen diferentes factores que caracterizan a cada una de las especies de pingüinos.
+             A continuación, se mostrarán gráficas de las variables recogidas de cada una de las especies.  """) 
 
 
 ############################################33
 
 st.header('Variables')
-st.text('En este apartado se podrán observar gráficas de los datos de cada una de las variables del dataset \n de las especies indicadas para su correspondiente comparación.')
+st.markdown('''En este apartado se podrán observar gráficas de los datos de cada una de las variables del dataset 
+         de las especies indicadas para su correspondiente comparación.''')
 chosen_multi = st.multiselect('Elige las especies de pingüinos', dict_species.values(), key="1")
 list_var = [var for  var in get_page_penguins()[0].keys()][5:-1]
 list_var.remove('Clutch Completion')
