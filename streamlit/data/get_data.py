@@ -1,7 +1,6 @@
 import re
 import requests
 import json
-import ast
 import pandas as pd
 
 # diccionarios

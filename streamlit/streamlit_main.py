@@ -41,6 +41,11 @@ st.header('Estudio de las relaciones entre las variables')
 st.subheader("Gráfica de correlaciones entre variables numéricas")
 st.plotly_chart(graf_corr())
 
+st.subheader("Enfrentamiento de variables")
+
+
+
+
 #list_opt = ["Gráfica de correlaciones entre variables numéricas", "Relación entre los valores delta",
  #           "Relación entre la longitud y profundidad"]
 #chosen_multi2 = st.selectbox('Elige las especies de pingüinos', list_opt, key="2")
