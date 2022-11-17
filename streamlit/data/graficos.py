@@ -2,6 +2,7 @@ from folium import Map, Marker
 from data.get_data import get_all_data, get_species_data, dict_geo
 import pandas as pd
 import plotly.express as px
+import seaborn as sns
 #https://github.com/randyzwitch/streamlit-folium
 
 
@@ -27,6 +28,8 @@ def graf_var(species, var):
    
     data = data[["Species", var]]  
     
+    # Gráfica que representar el numero de huevos puestos para cada especie. Se agrupan por meses para facilitar 
+    # la comprensión 
     if var =="Date Egg":
         df = pd.DataFrame()
         data[var] = data[var].astype('datetime64[ns]')
@@ -41,6 +44,7 @@ def graf_var(species, var):
         fig = px.line(df, x=var, y='Number', color="Species")
         return fig
 
+    #Estas son las gráficas para el resto de variables categóricas (gráfico de barras) 
 
     elif type(data.iloc[0][var])==str:
         df = data.groupby(by='Species').count()
@@ -53,6 +57,8 @@ def graf_var(species, var):
      
         fig = px.bar(df, x='Species', y = list(data[var].unique()), title = var+ ' Distribution amongst each species')
     
+    # Gráfico barras para las variables categóricas
+
     else: 
         fig = px.box(data, x="Species", y=var, points="all", color="Species" )
     
@@ -65,7 +71,32 @@ def graf_corr():
     data = get_all_data()
     fig = px.imshow(data.corr(), text_auto = True, width=700, height = 770)
     return fig 
-        
+
+# Función que permite enfrentar dos variables numéricas
+
+def graf_2var(species, list_var):
+
+    data = get_species_data(species)
+
+    """
+    if list_var[0]==list_var[1]:
+        data = data[["Species", list_var[0]]]
+        fig = sns.kdeplot(data[list_var[0]], hue = df["Species"], shade = True)
+    else:
+    """
+    data = data[["Species", list_var[0], list_var[1]]]
+    fig = px.scatter( data, 
+                    x=list_var[0], 
+                    y=list_var[1], 
+                    color="Species", 
+                    title ="Relación between "+list_var[0]+" y "+list_var[1])
+    
+    return fig 
+
+
+    
+
+
         
 
 
