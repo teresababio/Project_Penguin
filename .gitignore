@@ -5,11 +5,11 @@ streamlit/data/__pycache__/
 api/__pycache__/
 api/database/__pycache__/
 api/routers/__pycache__/
-
+streamlit/data/.ipynb_checkpoints/
 
 streamlit/.ipynb_checkpoints/
 dashboard/.ipynb_checkpoints/
-
+streamlit_multi/.ipynb_checkpoints/
 
 dashboard/datos/penguins_size.csv:Zone.Identifier
 dashboard/datos/penguins_lter.csv:Zone.Identifier
