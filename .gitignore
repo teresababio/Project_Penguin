@@ -1,1 +1,15 @@
 .env
+.git/
+/streamlit/data/__pycache__/
+./api/database/__pycache__/
+./api/__pycache__/
+./api/routers/__pycache__/
+./.git/
+
+./streamlit/.ipynb_checkpoints/
+
+./dashboard/datos/penguins_size.csv:Zone.Identifier
+./dashboard/datos/penguins_lter.csv:Zone.Identifier
+
+
+    
