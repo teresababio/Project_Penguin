@@ -1,5 +1,5 @@
 from folium import Map, Marker
-from data.get_data import get_all_data, get_species_data, dict_geo
+from data.get_data import get_all_data, get_species_data, dict_geo, get_2_var
 import pandas as pd
 import plotly.express as px
 import seaborn as sns
@@ -24,10 +24,9 @@ def mapa_Palmer():
 #las diferencias entre cada una de ellas.
 
 def graf_var(species, var):
-    data = get_species_data(species)
-   
-    data = data[["Species", var]]  
-    
+    data = get_2_var(var)
+    data = data [  data["Species"].isin(species)  ]
+     
     # Gráfica que representar el numero de huevos puestos para cada especie. Se agrupan por meses para facilitar 
     # la comprensión 
     if var =="Date Egg":
@@ -41,7 +40,7 @@ def graf_var(species, var):
             df =pd.concat([df, df_aux], axis=0)
         
         df.reset_index(inplace=True)
-        fig = px.line(df, x=var, y='Number', color="Species")
+        fig = px.line(df, x=var, y='Number', color="Species", title = var+ ' Distribution amongst each species')
         return fig
 
     #Estas son las gráficas para el resto de variables categóricas (gráfico de barras) 
@@ -55,12 +54,24 @@ def graf_var(species, var):
         df.drop(var, axis = 1, inplace = True)   
         df = df.reset_index()
      
-        fig = px.bar(df, x='Species', y = list(data[var].unique()), title = var+ ' Distribution amongst each species')
+        fig = px.bar(df, 
+                    x='Species', 
+                    y = list(data[var].unique()), 
+                    title = var+ ' Distribution amongst each species'
+                    )
     
     # Gráfico barras para las variables categóricas
 
     else: 
-        fig = px.box(data, x="Species", y=var, points="all", color="Species" )
+        fig = px.box(data, 
+                    x="Species", 
+                    y=var, 
+                    points="all", 
+                    color="Species" ,
+                    title = var+ ' Distribution amongst each species', 
+                    width=900, 
+                    height = 970
+                    )
     
     return fig
 
@@ -69,7 +80,12 @@ def graf_var(species, var):
 
 def graf_corr():
     data = get_all_data()
-    fig = px.imshow(data.corr(), text_auto = True, width=700, height = 770)
+    data = data.drop(["Individual ID"], axis=1)
+    fig = px.imshow(data.corr(),
+                    text_auto = True,
+                    width=700, 
+                    height = 770
+                    )
     return fig 
 
 # Función que permite enfrentar dos variables numéricas

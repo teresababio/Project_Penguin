@@ -2,6 +2,7 @@
 .git/
 
 streamlit_multi/data/__pycache__
+streamlit_multi/c_sidebar/__pycache__
 api/__pycache__/
 api/database/__pycache__/
 api/routers/__pycache__/

@@ -21,9 +21,7 @@ st.subheader("Species")
 print(list(df["Species"].unique()))
 
 url = [ "./images/Adelie_Penguin.jpg", "./images/IMG_4381.jpg", "./images/gento_penguin.jpg"]
- #        "https://as2.ftcdn.net/v2/jpg/03/19/68/49/1000_F_319684922_IJsiQyzDqDJ9mtqFyYaX5nUlUgHz2OrB.jpg",
-  #       "https://static.wikia.nocookie.net/naturerules1/images/d/d8/Gentoo-penguin.jpg/revision/latest?cb=20201110232001"
-         #    ]
+
 
 images = [imread(i) for i in url]
 st.image(images, width = 200, caption=["Adelie Penguin (Pygoscelis adeliae)", "Chinstrap penguin (Pygoscelis antarctica)",

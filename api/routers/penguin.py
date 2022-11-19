@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from database.mongodb import db, find_collection, paginate
-
+from bson import json_util
+from json import loads
  
 
 
@@ -21,11 +22,19 @@ def get_penguins(num_page:int=0):
 
 
 #Buscar un pinguino por su id
-@router.get("/search/penguin/id/{_id}")
+@router.get("/search/penguin/id/num/{_id}")
 def get_penguins(_id: int):
+        page = paginate()
+        res = page( find_collection("penguin_data", {"Individual_ID" : {"$eq": _id}}) )
+        return res
+
+@router.get("/search/penguin/id/str/{_id}")
+def get_penguins(_id: str):
         page = paginate()
         res = page( find_collection("penguin_data", {"Individual ID" : {"$eq": _id}}) )
         return res
+
+
 
 #Mostrar los valores de cada una de las variables
 @router.get("/distinct/penguin/{var}")
@@ -36,7 +45,7 @@ def get_penguins(var:str):
 #Mostrar todos los pinguinos de una especie determinada
 
 @router.get("/penguins/species/{specie}")
-def get_penguins(specie:str, num_page:int=0):
+def get_penguins(specie:str, num_page:int=0, var:str=""):
         dict_species = {"adelie": "Adelie Penguin (Pygoscelis adeliae)",
                 "chinstrap": "Chinstrap penguin (Pygoscelis antarctica)",
                 "gentoo": "Gentoo penguin (Pygoscelis papua)"}
@@ -55,19 +64,57 @@ def get_penguins(specie:str, num_page:int=0):
         return res
 
 
-#Mostrar todos los pinguinos de un sexo
 
-@router.get("/penguins/sex/{sexo}")
-def get_penguins(sexo:str, num_page:int=0):
-        # Validar page_number
-        if num_page<0:
-                raise HTTPException(status_code=400, detail="num_page debe ser positivo")
-        
-        #Validar specie
-        if sexo not in ["MALE", "FEMALE"]:
-                raise HTTPException(status_code=400, detail="No existe ese genero")
+#Router para seleccionar una variable y la especie
 
-        page = paginate(num_page)
-        res = page(find_collection("penguin_data",{"Sex": sexo.upper()}))
-        return res
+@router.get("/penguins/clutch")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 , 'Clutch Completion': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/island")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 , 'Island': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/egg")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 , 'Date Egg': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/length")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 , 'Culmen Length (mm)': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/depth")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 ,'Culmen Depth (mm)': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/flipper")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 , 'Flipper Length (mm)': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/bodymass")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0 , "Species": 1 , 'Body Mass (g)': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/sex")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0, "Species": 1 , "Sex": 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/delta15")
+def get_penguins():
+        res = find_collection("penguin_data", {}, {"_id":0, "Species": 1 , 'Delta 15 N (o/oo)': 1})
+        return loads(json_util.dumps(res))
+
+@router.get("/penguins/delta13")
+def get_penguins():
+        res = find_collection("penguin_data", {}, { "Species": 1 , 'Delta 13 C (o/oo)': 1})
+        return loads(json_util.dumps(res))
+
 
