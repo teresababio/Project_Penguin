@@ -1,7 +1,8 @@
 # Los pingüinos del Archipiélago de Palmer
-<p align="center">
+
+
 El archipiélago Palmer es un grupo de islas ubicadas frente a la costa noroeste de la Península Antártica. Los pingüinos son especies recurrentes en estas islas. Por ello, se estudiará las características de la población de tres especies de pingüinos de la familia Pygoscelis anidados en tres islas del Archipiélago de Palmer.
-</p>
+
 
 
 <p align="center">
@@ -10,16 +11,16 @@ El archipiélago Palmer es un grupo de islas ubicadas frente a la costa noroeste
 
 ## Objetivo
 
-<p align="center">
+
 El objetivo es presentar un dashboard interactivo que permita estudiar las características de cada una de las especies que residen en las tres islas. Por ello, se podrán graficas cada una de las variables comparando los datos de las especies. Así como enfrentar cada una de las variables numéricas que forman el dataset.
 
 La app presenta una página de datos donde se muestra la base de datos y  las variables.
-</p>
+
 
 ## Antes de ejecutar
 
 ### Contenidos del proyecto
-<p align="justify">
+
 El proyecto consta de tres carpetas:
 
 * Limpieza: esta carpeta contiene el análisis exploratorio de los datos antes de subirlos a MongoDB. Asimismo, la creación de una variable location con las coordenadas de la isla en la que reside el pingüino.
@@ -28,7 +29,7 @@ El proyecto consta de tres carpetas:
 
 * Streamlit_multi: el código de creación del streamlit que representa los datos.
 
-</p>
+
 
 ### Requirements
 * [Requirements](https://github.com/teresababio/Project_Penguin/blob/main/requirements.txt)
