@@ -14,19 +14,17 @@ st.markdown("""
         Península Antártica. Las islas del archipiélago Palmer son unas de las partes más accesibles y espectaculares
         del continente antártico.
 
-        Se estudiará la población de pingüinos de tres islas  del Archipiélago de Palmer.
+        Los pingüinos son especies recurrentes en estas islas. Por ello, se estudiará las características de la 
+        población de tres especies de  pingüinos  de la familia Pygoscelis anidados en tres islas  del Archipiélago de Palmer.
         """)
 map_palmer = st_folium(mapa_Palmer())
 
 st.markdown("""
-        Concretamente, las características de tres especies de pingüinos.
+        En cada temporada, los nidos de estudio, donde había parejas de adultos, 
+        se marcaron y eligieron individualmente antes del inicio de la puesta de huevos, y
+        se monitozaron. Cuando se encontraron nidos de estudio en la etapa de un huevo, 
+        se capturaron ambos adultos para obtener muestras de sangre  y mediciones del tamaño estructural y la masa corporal. 
         """)
-
-
-st.markdown("""Existen diferentes factores que caracterizan a cada una de las especies de pingüinos.
-                A continuación, se mostrarán gráficas de las variables recogidas de cada una de las especies.  """) 
-
-
 
 
 
@@ -34,6 +32,3 @@ click = st.button('Click me')
 print(click)
 
 
-Adelie Penguin (Pygoscelis adeliae)
-Chinstrap penguin (Pygoscelis antarctica)
-Gentoo penguin (Pygoscelis papua)

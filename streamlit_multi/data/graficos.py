@@ -11,7 +11,7 @@ def mapa_Palmer():
 
 
     m = Map(location=[-64.7333304,-64.2333324],
-               zoom_start=5)
+               zoom_start=8)
 
     for place in dict_geo.keys():
         m.add_child(Marker([dict_geo[place]["latitud"], dict_geo[place]["longitud"]]

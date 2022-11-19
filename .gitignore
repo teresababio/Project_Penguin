@@ -1,18 +1,19 @@
 .env
 .git/
 
-streamlit/data/__pycache__/
+streamlit_multi/data/__pycache__
 api/__pycache__/
 api/database/__pycache__/
 api/routers/__pycache__/
-streamlit/data/.ipynb_checkpoints/
 
-streamlit/.ipynb_checkpoints/
 dashboard/.ipynb_checkpoints/
 streamlit_multi/.ipynb_checkpoints/
 
 dashboard/datos/penguins_size.csv:Zone.Identifier
 dashboard/datos/penguins_lter.csv:Zone.Identifier
 
-
+streamlit_multi/images/Adelie_Penguin.jpg:Zone.Identifier
+streamlit_multi/images/culmen.jpg_small:Zone.Identifier
+streamlit_multi/images/gento_penguin.jpg:Zone.Identifier
+streamlit_multi/images/IMG_4381.jpg:Zone.Identifier
     

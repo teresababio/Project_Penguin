@@ -5,7 +5,7 @@ import pandas as pd
 
 # diccionarios
 
-dict_geo = {'Biscoe': {'latitud': -65.4333316, 'longitud': -65.499998},
+dict_geo = {'Biscoe': {'latitud': -64.7999968, 'longitud': -63.83333},
         'Dream': {'latitud': -64.7333304, 'longitud': -64.2333324},
         'Torgersen': {'latitud': -64.7666636, 'longitud': -64.083333}}
 
