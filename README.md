@@ -19,7 +19,7 @@ La app presenta una página de datos donde se muestra la base de datos y  las va
 ## Antes de ejecutar
 
 ### Contenidos del proyecto
-<p align="center">
+<p align="justify">
 El proyecto consta de tres carpetas:
 
 * Limpieza: esta carpeta contiene el análisis exploratorio de los datos antes de subirlos a MongoDB. Asimismo, la creación de una variable location con las coordenadas de la isla en la que reside el pingüino.
