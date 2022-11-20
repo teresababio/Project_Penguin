@@ -10,12 +10,13 @@ st.markdown("# Estudio de variables según la especie")
 
 
 
-st.header('Variables')
+st.header("Variables")
 st.markdown('''En este apartado se grafican para cada una de las especies especificadas
-                los datos de una de las  variables del conjunto de datos seleccionadas.''')
+                los datos de una de las  variables seleccionadas del conjunto de datos.''')
                 
 list_var = [var for  var in get_page_penguins()[0].keys()][5:-1]
-list_var.remove('Stage')
+list_var.remove("Stage")
+list_var.remove("Individual ID")
 
 family=Sidebar.var()
 chosen_multi = family[0]
@@ -29,5 +30,5 @@ if chosen_multi and index_selec:
         if fig != None:
             st.plotly_chart(fig)
 
-click = st.button('Click me')
+click = st.button("Click me")
 print(click)

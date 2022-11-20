@@ -6,8 +6,8 @@ from c_sidebar.sidebar import Sidebar
 st.set_page_config(page_title="Representación de variables numéricas", page_icon="📚")
 
 st.markdown("# Representación de variables numéricas")
-st.markdown('''En este apartado se entrará más en profundidad en ñas reñaciones que existen entre cada una de las
-variables numéricas''')
+st.markdown('''En este apartado se entrará más en profundidad en las relaciones que existen entre cada una de las
+variables numéricas.''')
 
 chosen_multi , chosen_multi2 = Sidebar.var_num()
 
@@ -16,7 +16,7 @@ print(chosen_multi, chosen_multi2)
 st.subheader("Gráfica de correlaciones entre variables numéricas")
 
 st.markdown('''
-La correlación es una medida estadística que expresa hasta qué punto dos variables están relacionadas linealmente (esto es, cambian conjuntamente a una tasa constante). 
+La correlación es una medida estadística que expresa hasta qué punto dos variables están relacionadas linealmente. 
 Es una herramienta común para describir relaciones simples.
 ''')
 
@@ -37,6 +37,6 @@ if len(chosen_multi)==2 and chosen_multi2!=[]:
 
 
 
-click = st.button('Click me')
+click = st.button("Click me")
 print(click)
 

@@ -3,15 +3,16 @@
 
 streamlit_multi/data/__pycache__
 streamlit_multi/c_sidebar/__pycache__
+streamlit_multi/api_url/__pycache__
 api/__pycache__/
 api/database/__pycache__/
 api/routers/__pycache__/
 
-dashboard/.ipynb_checkpoints/
+datos_limpieza/.ipynb_checkpoints/
 streamlit_multi/.ipynb_checkpoints/
 
-dashboard/datos/penguins_size.csv:Zone.Identifier
-dashboard/datos/penguins_lter.csv:Zone.Identifier
+datos_limpieza/datos/penguins_size.csv:Zone.Identifier
+datos_limpieza/datos/penguins_lter.csv:Zone.Identifier
 
 streamlit_multi/images/Adelie_Penguin.jpg:Zone.Identifier
 streamlit_multi/images/culmen.jpg_small:Zone.Identifier

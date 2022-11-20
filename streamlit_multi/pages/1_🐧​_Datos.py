@@ -43,22 +43,21 @@ st.markdown('''
 
 st.subheader("Date Egg")
 st.markdown('''
-    Indica la fecha en la que el nido y, por consecuencia, los datos fueron tomados para los individuos
+    Indica la fecha en la que el nido y, por consecuencia, los datos fueron tomados.
     ''')
 
 st.subheader("Clutch completion")
 st.markdown('''
-    Indica si en el momento de estudiar el nido habían dos huevos 
+    Indica si en el momento de estudiar en el nido habían dos huevos.
     ''')
 
- #date Egg stage
 
 st.subheader("Study Name")
 st.markdown('''
-    Código de la expedición en la que fueron recolectados los datos 
+    Código de la expedición en la que fueron recolectados los datos. 
     ''')
 
 
 
-click = st.button('Click me')
+click = st.button("Click me")
 print(click)

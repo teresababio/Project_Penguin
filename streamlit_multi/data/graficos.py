@@ -15,7 +15,7 @@ def mapa_Palmer():
 
     for place in dict_geo.keys():
         m.add_child(Marker([dict_geo[place]["latitud"], dict_geo[place]["longitud"]]
-                       , tooltip=place+' Island'))
+                       , tooltip=place+" Island"))
     
     return m
 
@@ -31,33 +31,33 @@ def graf_var(species, var):
     # la comprensión 
     if var =="Date Egg":
         df = pd.DataFrame()
-        data[var] = data[var].astype('datetime64[ns]')
+        data[var] = data[var].astype("datetime64[ns]")
 
         for sp in species:
-            df_aux = ( data[data['Species'] == sp].groupby(by=var).count().reset_index() ).resample(rule='M', on=var).sum()
-            df_aux.rename(columns = {'Species':'Number'}, inplace = True)
+            df_aux = ( data[data["Species"] == sp].groupby(by=var).count().reset_index() ).resample(rule="M", on=var).sum()
+            df_aux.rename(columns = {"Species":"Number"}, inplace = True)
             df_aux["Species"] = sp
             df =pd.concat([df, df_aux], axis=0)
         
         df.reset_index(inplace=True)
-        fig = px.line(df, x=var, y='Number', color="Species", title = var+ ' Distribution amongst each species')
+        fig = px.line(df, x=var, y="Number", color="Species", title = var+ " Distribution amongst each species")
         return fig
 
     #Estas son las gráficas para el resto de variables categóricas (gráfico de barras) 
 
     elif type(data.iloc[0][var])==str:
-        df = data.groupby(by='Species').count()
+        df = data.groupby(by="Species").count()
         for value in list(data[var].unique()):
             
-            df[value] =data[data[var] == value].groupby(by='Species').count()[var]
+            df[value] =data[data[var] == value].groupby(by="Species").count()[var]
             
         df.drop(var, axis = 1, inplace = True)   
         df = df.reset_index()
      
         fig = px.bar(df, 
-                    x='Species', 
+                    x="Species", 
                     y = list(data[var].unique()), 
-                    title = var+ ' Distribution amongst each species'
+                    title = var+ " Distribution amongst each species"
                     )
     
     # Gráfico barras para las variables categóricas
@@ -68,7 +68,7 @@ def graf_var(species, var):
                     y=var, 
                     points="all", 
                     color="Species" ,
-                    title = var+ ' Distribution amongst each species', 
+                    title = var+ " Distribution amongst each species", 
                     width=900, 
                     height = 970
                     )

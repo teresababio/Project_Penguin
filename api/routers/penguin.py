@@ -24,15 +24,14 @@ def get_penguins(num_page:int=0):
 #Buscar un pinguino por su id
 @router.get("/search/penguin/id/num/{_id}")
 def get_penguins(_id: int):
-        page = paginate()
-        res = page( find_collection("penguin_data", {"Individual_ID" : {"$eq": _id}}) )
-        return res
+
+        res = find_collection("penguin_data", {"ID_index" : {"$eq": _id}}) 
+        return loads(json_util.dumps(res))
 
 @router.get("/search/penguin/id/str/{_id}")
 def get_penguins(_id: str):
-        page = paginate()
-        res = page( find_collection("penguin_data", {"Individual ID" : {"$eq": _id}}) )
-        return res
+        res =find_collection("penguin_data", {"Individual ID" : {"$eq": _id}}) 
+        return loads(json_util.dumps(res))
 
 
 
@@ -114,7 +113,15 @@ def get_penguins():
 
 @router.get("/penguins/delta13")
 def get_penguins():
-        res = find_collection("penguin_data", {}, { "Species": 1 , 'Delta 13 C (o/oo)': 1})
+        res = find_collection("penguin_data", {}, {"_id":0,  "Species": 1 , 'Delta 13 C (o/oo)': 1})
         return loads(json_util.dumps(res))
 
+@router.get("/penguins/individualid")
+def get_penguins():
+        res = find_collection("penguin_data", {}, { "_id":0, 'Individual ID': 1})
+        return loads(json_util.dumps(res))
 
+@router.get("/penguins/idindex")
+def get_penguins():
+        res = find_collection("penguin_data", {}, { "_id":0, 'ID_index': 1})
+        return loads(json_util.dumps(res))
