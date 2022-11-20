@@ -1,10 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import numpy as np
 from data.graficos import mapa_Palmer, graf_var, graf_corr, graf_2var
 from data.get_data import dict_species, get_page_penguins
 from streamlit_folium import st_folium
-from PIL import Image
 
 
 st.title('Los pingüinos del Archipiélago de Palmer')

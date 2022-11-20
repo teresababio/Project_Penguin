@@ -1,7 +1,7 @@
 # Los pingüinos del Archipiélago de Palmer
 
 
-El archipiélago Palmer es un grupo de islas ubicadas frente a la costa noroeste de la Península Antártica. Los pingüinos son especies recurrentes en estas islas. Por ello, se estudiará las características de la población de tres especies de pingüinos de la familia Pygoscelis anidados en tres islas del Archipiélago de Palmer.
+El archipiélago Palmer es un grupo de islas ubicadas frente a la costa noroeste de la Península Antártica. Los pingüinos son especies recurrentes en estas islas. Por ello, se estudiará las características de la población de tres especies de pingüinos de la familia Pygoscelis anidadas en tres islas del Archipiélago de Palmer.
 
 
 
@@ -12,7 +12,7 @@ El archipiélago Palmer es un grupo de islas ubicadas frente a la costa noroeste
 ## Objetivo
 
 
-El objetivo es presentar un dashboard interactivo que permita estudiar las características de cada una de las especies que residen en las tres islas. Por ello, se podrán graficas cada una de las variables comparando los datos de las especies. Así como enfrentar cada una de las variables numéricas que forman el dataset.
+El objetivo es presentar un dashboard interactivo que permita estudiar las características de cada una de las especies que residen en las tres islas. Por ello, se podrán graficar cada una de las variables comparando los datos de las especies. Así como enfrentar cada una de las variables numéricas que forman el dataset y buscar un individuos en particular por su ID.
 
 La app presenta una página de datos donde se muestra la base de datos y  las variables.
 
