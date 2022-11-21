@@ -6,7 +6,7 @@ from json import loads
 
 
 router = APIRouter()
-#Mostrar todos los datos
+# Mostrar todos los datos
 @router.get("/penguins")
 def get_penguins(num_page:int=0):
 
@@ -21,7 +21,7 @@ def get_penguins(num_page:int=0):
 
 
 
-#Buscar un pinguino por su id
+# Buscar un pinguino por su id
 @router.get("/search/penguin/id/num/{_id}")
 def get_penguins(_id: int):
 
@@ -35,13 +35,13 @@ def get_penguins(_id: str):
 
 
 
-#Mostrar los valores de cada una de las variables
+# Mostrar los valores de cada una de las variables
 @router.get("/distinct/penguin/{var}")
 def get_penguins(var:str):
         res = list(db["penguin_data"].find({}).distinct(var))
         return res
 
-#Mostrar todos los pinguinos de una especie determinada
+# Mostrar todos los pinguinos de una especie determinada
 
 @router.get("/penguins/species/{specie}")
 def get_penguins(specie:str, num_page:int=0, var:str=""):
@@ -54,7 +54,7 @@ def get_penguins(specie:str, num_page:int=0, var:str=""):
         if num_page<0:
                 raise HTTPException(status_code=400, detail="num_page debe ser positivo")
         
-        #Validar specie
+        # Validar specie
         if specie not in dict_species.keys():
                 raise HTTPException(status_code=400, detail="specie no incluida en la base de datos")
 

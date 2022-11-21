@@ -8,7 +8,7 @@ st.set_page_config(page_title="Búsqueda de pingüinos", page_icon="🔍​")
 
 st.markdown("# Búsqueda de pingüinos")
 st.markdown(
-    '''La base de datos proporcionaba un Individual ID que en algunos casos estaba asignado a individuo distintos.
+    '''La base de datos proporcionaba un Individual ID que en algunos casos estaba asignado a individuos distintos.
      Por ello, se ha creado otro ID_index para cada uno de los datos recogidos (es único). '''
     )
 
@@ -29,7 +29,7 @@ if option == "ID_index" :
         aux = df_id.iloc[0]["Individual ID"]
         st.markdown(f"## id={user_input} e Individual ID = {aux}")
         df_id = df_id.drop(["_id", "location", "Individual ID", "ID_index"], axis=1)
-        st.table(df_id)
+        st.table(df_id.iloc[0])
 
     else:
         st.text(f"Hay que introducir un número entre 0 y {df_index.shape[0]}")

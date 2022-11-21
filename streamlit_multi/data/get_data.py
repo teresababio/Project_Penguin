@@ -77,12 +77,16 @@ def get_species_data(species):
     df.reset_index(drop=True, inplace =True)
     return df
 
+
+# Devuelve todos los valores de Individual ID y ID_index
 def get_distinct_ID():
     return pd.DataFrame(requests.get(url + "/penguins/individualid").json()), pd.DataFrame(requests.get(url + "/penguins/idindex").json())
 
+# Devuelve los datos de un individuo por el ID-index
 def get_id_index(_id):
     return requests.get(url + "/search/penguin/id/num/"+str(_id)).json()
 
+# Devuelve los datos de un individuo por el Individual ID
 def get_id_individual(_id):
     return requests.get(url + "/search/penguin/id/str/"+str(_id)).json()
 

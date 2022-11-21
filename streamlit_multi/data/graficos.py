@@ -2,8 +2,9 @@ from folium import Map, Marker
 from data.get_data import get_all_data, get_species_data, dict_geo, get_2_var
 import pandas as pd
 import plotly.express as px
-import seaborn as sns
-#https://github.com/randyzwitch/streamlit-folium
+
+
+
 
 
 #Función que permite representar las coordenadas de cada una de las islas.
@@ -80,7 +81,7 @@ def graf_var(species, var):
 
 def graf_corr():
     data = get_all_data()
-    data = data.drop(["Individual ID"], axis=1)
+    data = data.drop(["Individual ID", "ID_index"], axis=1)
     fig = px.imshow(data.corr(),
                     text_auto = True,
                     width=700, 
@@ -94,12 +95,6 @@ def graf_2var(species, list_var):
 
     data = get_species_data(species)
 
-    """
-    if list_var[0]==list_var[1]:
-        data = data[["Species", list_var[0]]]
-        fig = sns.kdeplot(data[list_var[0]], hue = df["Species"], shade = True)
-    else:
-    """
     data = data[["Species", list_var[0], list_var[1]]]
     fig = px.scatter( data, 
                     x=list_var[0], 

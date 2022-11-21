@@ -15,8 +15,4 @@ def raiz():
         "message":"Bienvenido a la Api de los Pingüinos"
     }
 
-@app.get("info")
-def info():
-    return{
-        #explicar brevemente los router
-    }
+

@@ -11,7 +11,6 @@ variables numéricas.''')
 
 chosen_multi , chosen_multi2 = Sidebar.var_num()
 
-print(chosen_multi, chosen_multi2)
 
 st.subheader("Gráfica de correlaciones entre variables numéricas")
 
