@@ -65,7 +65,10 @@ def get_2_var(name):
     key_var = list(dict_router.keys())[list(dict_router.values()).index(name)] #devuelve la key de la variable pasada
     return pd.DataFrame(requests.get(url + "/penguins/"+str(key_var)).json())
 
+
+
 # Función que devuelve todos  los datos de las species indicadas
+
 def get_species_data(species):
     df = pd.DataFrame()
     for sp in species :

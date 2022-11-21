@@ -28,7 +28,7 @@ def graf_var(species, var):
     data = get_2_var(var)
     data = data [  data["Species"].isin(species)  ]
      
-    # Gráfica que representar el numero de huevos puestos para cada especie. Se agrupan por meses para facilitar 
+    # Gráfica que representar el numero de nidos observados por cada mes en  cada especie. Se agrupan por meses para facilitar 
     # la comprensión 
     if var =="Date Egg":
         df = pd.DataFrame()
